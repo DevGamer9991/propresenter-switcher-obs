@@ -11,6 +11,7 @@
 #include <QNetworkRequest>
 #include <QNetworkReply>
 #include <QLineEdit>
+#include <QMainWindow>
 
 class MainWidget : public QDockWidget {
     Q_OBJECT
@@ -25,9 +26,12 @@ class MainWidget : public QDockWidget {
         QPushButton *fullscreenButton = new QPushButton("FullScreen");
         QNetworkAccessManager *manager;
         QNetworkRequest request;
+        QLineEdit *ipInput;
 
     private slots:
         void FullscreenButtonClicked();
+        void lowerthirdButtonClicked();
+        void scriptureButtonClicked();
 };      
 
 #endif
