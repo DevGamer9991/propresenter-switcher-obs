@@ -30,7 +30,6 @@ jobs:
 
   create-release:
     name: Create Release 🛫
-    if: github.ref_type == 'tag'
     runs-on: ubuntu-22.04
     needs: build-project
     defaults:
