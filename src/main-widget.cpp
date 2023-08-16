@@ -1,7 +1,7 @@
 #include "main-widget.hpp"
 
 MainWidget::MainWidget(QWidget *parent) : QDockWidget("Propresenter Controller", parent) {
-this->parent = parent;
+    this->parent = parent;
 
     QWidget *widget = new QWidget();
     QVBoxLayout *mainLayout = new QVBoxLayout(); // create a vertical layout
@@ -9,8 +9,7 @@ this->parent = parent;
     QPushButton *fullscreenButton = new QPushButton("FullScreen");
     QPushButton *lowerthirdButton = new QPushButton("Lower Third");
     QPushButton *scriptureButton = new QPushButton("Scripture View");
-    QLineEdit *ipInput = new QLineEdit(); // create a QLineEdit for the IP input
-    QPushButton *setIPButton = new QPushButton("Set IP");
+    ipInput = new QLineEdit(); // create a QLineEdit for the IP input
 
     gridLayout->addWidget(fullscreenButton, 0, 0);
     gridLayout->addWidget(lowerthirdButton, 0, 1);
@@ -18,7 +17,6 @@ this->parent = parent;
 
     QHBoxLayout *ipLayout = new QHBoxLayout(); // create a horizontal layout for the IP input and Set IP button
     ipLayout->addWidget(ipInput); // add the IP input to the layout
-    ipLayout->addWidget(setIPButton); // add the Set IP button to the layout
 
     mainLayout->addLayout(gridLayout); // add the grid layout to the vertical layout
     mainLayout->addLayout(ipLayout); // add the IP input and Set IP button layout to the vertical layout
@@ -40,12 +38,12 @@ this->parent = parent;
             }
 
             QString answer = reply->readAll();
-
-            QMessageBox::information(parent, "reply", answer);
         }
     );
 
     QObject::connect(fullscreenButton, SIGNAL(clicked()), SLOT(FullscreenButtonClicked()));
+    QObject::connect(lowerthirdButton, SIGNAL(clicked()), SLOT(lowerthirdButtonClicked()));
+    QObject::connect(scriptureButton, SIGNAL(clicked()), SLOT(scriptureButtonClicked()));
 }
 
 MainWidget::~MainWidget() {
@@ -53,6 +51,16 @@ MainWidget::~MainWidget() {
 };
 
 void MainWidget::FullscreenButtonClicked() {
-    request.setUrl(QUrl("http://localhost:8000"));
+    request.setUrl(QUrl("http://" + ipInput->text() + ":1025/v1/look/0/trigger"));
+    manager->get(request);
+}
+
+void MainWidget::lowerthirdButtonClicked() {
+    request.setUrl(QUrl("http://" + ipInput->text() + ":1025/v1/look/1/trigger"));
+    manager->get(request);
+}
+
+void MainWidget::scriptureButtonClicked() {
+    request.setUrl(QUrl("http://" + ipInput->text() + ":1025/v1/look/2/trigger"));
     manager->get(request);
 }
