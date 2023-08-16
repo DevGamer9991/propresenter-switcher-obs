@@ -1,6 +1,6 @@
 /*
-Plugin Name
-Copyright (C) <Year> <Developer> <Email Address>
+Propresenter Controller
+Copyright (C) 2023 Parker Thornton pathornton114@gmail.com
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -18,12 +18,19 @@ with this program. If not, see <https://www.gnu.org/licenses/>
 
 #include <obs-module.h>
 #include <plugin-support.h>
+#include <obs-frontend-api.h>
+#include <QWidget>
+#include "main-widget.hpp"
 
 OBS_DECLARE_MODULE()
 OBS_MODULE_USE_DEFAULT_LOCALE(PLUGIN_NAME, "en-US")
 
 bool obs_module_load(void)
 {
+	QWidget *main_window = (QWidget *)obs_frontend_get_main_window();
+	MainWidget *mainWidget = new MainWidget(main_window);
+
+	obs_frontend_add_dock(mainWidget);
 	obs_log(LOG_INFO, "plugin loaded successfully (version %s)",
 		PLUGIN_VERSION);
 	return true;
