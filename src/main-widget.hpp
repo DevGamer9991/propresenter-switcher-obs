@@ -12,6 +12,8 @@
 #include <QNetworkReply>
 #include <QLineEdit>
 #include <QMainWindow>
+#include <obs.h>
+#include <obs-frontend-api.h>
 
 class MainWidget : public QDockWidget {
     Q_OBJECT
@@ -22,16 +24,22 @@ class MainWidget : public QDockWidget {
 
     private:
         QWidget *parent = nullptr;
-        QGridLayout *layout = new QGridLayout(); // Declare a QGridLayout
+        QWidget *widget = new QWidget();
+        QVBoxLayout *mainLayout = new QVBoxLayout(); 
+        QGridLayout *gridLayout = new QGridLayout(); 
         QPushButton *fullscreenButton = new QPushButton("FullScreen");
+        QPushButton *lowerthirdButton = new QPushButton("Lower Third");
+        QPushButton *scriptureButton = new QPushButton("Scripture View");
         QNetworkAccessManager *manager;
         QNetworkRequest request;
+        QLabel *ipLabel = new QLabel("IP Address:");
         QLineEdit *ipInput;
 
     private slots:
         void FullscreenButtonClicked();
         void lowerthirdButtonClicked();
         void scriptureButtonClicked();
+        void ipInputEdited();
 };      
 
 #endif
