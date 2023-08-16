@@ -24,7 +24,7 @@ MainWidget::MainWidget(QWidget *widgetParent)
 
 	setVisible(false);
 	setFloating(true);
-	resize(300, 300);
+	resize(300, 150);
 
 	std::string profilePath = obs_frontend_get_current_profile_path();
 	profilePath.append("/obs-propresenter.json");
