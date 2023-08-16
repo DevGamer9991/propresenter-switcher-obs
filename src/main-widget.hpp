@@ -16,30 +16,30 @@
 #include <obs-frontend-api.h>
 
 class MainWidget : public QDockWidget {
-    Q_OBJECT
+	Q_OBJECT
 
-    public:
-        explicit MainWidget(QWidget *widgetParent = nullptr);
-        ~MainWidget();
+public:
+	explicit MainWidget(QWidget *widgetParent = nullptr);
+	~MainWidget();
 
-    private:
-        QWidget *parent = nullptr;
-        QWidget *widget = new QWidget();
-        QVBoxLayout *mainLayout = new QVBoxLayout(); 
-        QGridLayout *gridLayout = new QGridLayout(); 
-        QPushButton *fullscreenButton = new QPushButton("FullScreen");
-        QPushButton *lowerthirdButton = new QPushButton("Lower Third");
-        QPushButton *scriptureButton = new QPushButton("Scripture View");
-        QNetworkAccessManager *manager;
-        QNetworkRequest request;
-        QLabel *ipLabel = new QLabel("IP Address:");
-        QLineEdit *ipInput;
+private:
+	QWidget *parent = nullptr;
+	QWidget *widget = new QWidget();
+	QVBoxLayout *mainLayout = new QVBoxLayout();
+	QGridLayout *gridLayout = new QGridLayout();
+	QPushButton *fullscreenButton = new QPushButton("FullScreen");
+	QPushButton *lowerthirdButton = new QPushButton("Lower Third");
+	QPushButton *scriptureButton = new QPushButton("Scripture View");
+	QNetworkAccessManager *manager;
+	QNetworkRequest request;
+	QLabel *ipLabel = new QLabel("IP Address:");
+	QLineEdit *ipInput;
 
-    private slots:
-        void FullscreenButtonClicked();
-        void lowerthirdButtonClicked();
-        void scriptureButtonClicked();
-        void ipInputEdited();
-};      
+private slots:
+	void FullscreenButtonClicked();
+	void lowerthirdButtonClicked();
+	void scriptureButtonClicked();
+	void ipInputEdited();
+};
 
 #endif
