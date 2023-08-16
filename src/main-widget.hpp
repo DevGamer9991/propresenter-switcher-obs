@@ -23,7 +23,6 @@ class MainWidget : public QDockWidget {
         ~MainWidget();
 
     private:
-        QWidget *parent = nullptr;
         QWidget *widget = new QWidget();
         QVBoxLayout *mainLayout = new QVBoxLayout(); 
         QGridLayout *gridLayout = new QGridLayout(); 
