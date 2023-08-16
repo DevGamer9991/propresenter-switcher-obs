@@ -11,7 +11,7 @@ MainWidget::MainWidget(QWidget *widgetParent) : QDockWidget("Propresenter Contro
 
     QHBoxLayout *ipLayout = new QHBoxLayout(); 
     ipLayout->addWidget(ipLabel);
-    ipLayout->addWidget(ipInput); widgetParent
+    ipLayout->addWidget(ipInput);
 
     mainLayout->addLayout(gridLayout);
     mainLayout->addLayout(ipLayout); 
