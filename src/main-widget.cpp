@@ -1,7 +1,7 @@
 #include "main-widget.hpp"
 
-MainWidget::MainWidget(QWidget *parent) : QDockWidget("Propresenter Controller", parent) {
-    this->parent = parent;
+MainWidget::MainWidget(QWidget *widgetParent) : QDockWidget("Propresenter Controller", widgetParent) {
+    this->parent = widgetParent;
 
     ipInput = new QLineEdit();
 
@@ -11,7 +11,7 @@ MainWidget::MainWidget(QWidget *parent) : QDockWidget("Propresenter Controller",
 
     QHBoxLayout *ipLayout = new QHBoxLayout(); 
     ipLayout->addWidget(ipLabel);
-    ipLayout->addWidget(ipInput); 
+    ipLayout->addWidget(ipInput); widgetParent
 
     mainLayout->addLayout(gridLayout);
     mainLayout->addLayout(ipLayout); 
@@ -42,7 +42,7 @@ MainWidget::MainWidget(QWidget *parent) : QDockWidget("Propresenter Controller",
     QObject::connect(manager, &QNetworkAccessManager::finished,
         this, [=](QNetworkReply *reply) {
             if (reply->error()) {
-                QMessageBox::information(parent, "reply", reply->errorString());
+                QMessageBox::information(widgetParent, "reply", reply->errorString());
                 return;
             }
 

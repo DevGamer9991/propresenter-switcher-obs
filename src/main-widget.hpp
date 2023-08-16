@@ -19,10 +19,11 @@ class MainWidget : public QDockWidget {
     Q_OBJECT
 
     public:
-        explicit MainWidget(QWidget *parent = nullptr);
+        explicit MainWidget(QWidget *widgetParent = nullptr);
         ~MainWidget();
 
     private:
+        QWidget *parent = nullptr;
         QWidget *widget = new QWidget();
         QVBoxLayout *mainLayout = new QVBoxLayout(); 
         QGridLayout *gridLayout = new QGridLayout(); 
