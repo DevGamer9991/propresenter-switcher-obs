@@ -41,14 +41,14 @@
     },
     "platformConfig": {
         "macos": {
-            "bundleId": "com.example.obs-plugintemplate"
+            "bundleId": "com.parker.parker-propresentercontroller"
         }
     },
-    "name": "obs-plugintemplate",
+    "name": "parker-propresentercontroller",
     "version": "1.0.0",
-    "author": "Your Name Here",
-    "website": "https://example.com",
-    "email": "me@example.com",
+    "author": "Parker Thornton",
+    "website": "https://parkerthornton.net",
+    "email": "pathornton114@gmail.com",
     "uuids": {
         "macosPackage": "00000000-0000-0000-0000-000000000000",
         "macosInstaller": "00000000-0000-0000-0000-000000000000",
