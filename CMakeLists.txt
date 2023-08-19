@@ -34,6 +34,6 @@ if(ENABLE_QT)
                AUTORCC ON)
 endif()
 
-target_sources(${CMAKE_PROJECT_NAME} PRIVATE src/plugin-main.cpp src/main-widget.cpp)
+target_sources(${CMAKE_PROJECT_NAME} PRIVATE src/plugin-main.cpp src/main-widget.cpp src/config-widget.cpp)
 
 set_target_properties_plugin(${CMAKE_PROJECT_NAME} PROPERTIES OUTPUT_NAME ${_name})
