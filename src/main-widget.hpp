@@ -1,4 +1,4 @@
-#ifndef Main_HPP
+#ifndef MAIN_HPP
 #define MAIN_HPP
 
 #include <QDockWidget>
