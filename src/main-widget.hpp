@@ -1,5 +1,5 @@
-#ifndef TEST_H
-#define TEST_H
+#ifndef Main_HPP
+#define MAIN_HPP
 
 #include <QDockWidget>
 #include <QPushButton>
@@ -12,8 +12,10 @@
 #include <QNetworkReply>
 #include <QLineEdit>
 #include <QMainWindow>
+#include <QString>
 #include <obs.h>
 #include <obs-frontend-api.h>
+#include "config-widget.hpp"
 
 class MainWidget : public QDockWidget {
 	Q_OBJECT
@@ -32,14 +34,18 @@ private:
 	QPushButton *scriptureButton = new QPushButton("Scripture View");
 	QNetworkAccessManager *manager;
 	QNetworkRequest request;
-	QLabel *ipLabel = new QLabel("IP Address:");
-	QLineEdit *ipInput;
+	QLineEdit *ipInput = new QLineEdit();
+	QPushButton *configButton = new QPushButton("Configure");
+	QString ip;
+
+public slots:
+	void setIP(QString newIP);
 
 private slots:
 	void FullscreenButtonClicked();
 	void lowerthirdButtonClicked();
 	void scriptureButtonClicked();
-	void ipInputEdited();
+	void configButtonClicked();
 };
 
 #endif
