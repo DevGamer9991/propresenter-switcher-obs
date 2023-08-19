@@ -9,7 +9,7 @@ ConfigWidget::ConfigWidget(QWidget *widgetParent)
 	setFeatures(QDockWidget::DockWidgetFloatable |
 		    QDockWidget::DockWidgetMovable);
 
-	mainLayout->addWidget(new QLabel("Config Widget"));
+	mainLayout->addWidget(new QLabel("IP Address:"));
 
 	mainLayout->addWidget(ipInput);
 
